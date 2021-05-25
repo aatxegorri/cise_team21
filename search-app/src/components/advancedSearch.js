@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
 import '../App.css';
 
-class home extends Component {
 
-    AdvanceSearch
-    shandleButtonClicked() {
-        window.location.href = "/search";
+
+class advancedSearch extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            searchQuery: ''
+        };
     }
-    ahandleButtonClicked() {
-        window.location.href = "/advancedSearch";
-    }
-    
+
+    handleInputChanged(event) {
+        this.setState({
+          searchQuery: event.target.value
+        });
+      }
     render() {
         return (
+
             <div className="home">
                 <div className="navbar">
                     <ul className="navlist">
@@ -22,24 +30,17 @@ class home extends Component {
                     </ul>
                 </div>
                 <div className="container">
-                    <h1 className="title">Home</h1>
-                    <h2 className="header">SEEDS</h2>
-                    <h3 className="subheader">CISE - Team 21</h3>
-                    <div className="buttons">
-                        <button className="btn" onClick={this.shandleButtonClicked.bind(this)}>
-                        Basic Search
-                        </button>
-                        <button className="btn" onClick={this.ahandleButtonClicked.bind(this)}>
-                        Advanced Search
-                        </button>
-                    </div>
+                    <h2 className="title">Articles</h2>
+                    <h2 className="header">Basic Search</h2>                         
+                    <input className="textbox" onChange={this.handleInputChanged.bind(this)} value={this.state.searchQuery}/>
+                    <p>{this.state.searchQuery}</p>
                 </div>
                 <div className="footer">
                     <p className="footertext">Developed by</p>
                     <p className="footertext">Victor Feng | Aaron Gilbert | Gerard Gomez</p>
                 </div>
             </div>
-        );
-    }
+    );
   }
-export default home;
+}
+export default advancedSearch;
