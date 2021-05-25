@@ -3,16 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "engines": {
-    "node": "14.x"
+    "node": "10.16.0"
   },
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "app": "nodemon app.js",
-
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix search-app && npm run build --prefix search-app",
-    "test": "echo \"Error: no test specified\" && exit 1"
-
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -24,9 +22,6 @@
     "url": "https://github.com/aatxegorri/cise_team21/issues"
   },
   "homepage": "https://github.com/aatxegorri/cise_team21#readme",
-  "engines": {
-    "node": "10.16.0"
-  },
   "dependencies": {
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
@@ -40,6 +35,8 @@
     "validation": "0.0.1"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.13.13",
+    "jest": "^26.6.3",
     "nodemon": "^2.0.7",
     "web-vitals": "^1.1.2"
   },
