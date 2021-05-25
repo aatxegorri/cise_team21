@@ -7,9 +7,6 @@ class home extends Component {
     shandleButtonClicked() {
         window.location.href = "/search";
     }
-    ahandleButtonClicked() {
-        window.location.href = "/advancedSearch";
-    }
     
     render() {
         return (
@@ -18,7 +15,6 @@ class home extends Component {
                     <ul className="navlist">
                         <li className="navbtn"><a href="/">Home</a></li>
                         <li className="navbtn"><a href="/search">Browse Articles</a></li>
-                        <li className="navbtn"><a href="/advancedSearch">Advanced Search</a></li>
                     </ul>
                 </div>
                 <div className="container">
@@ -26,12 +22,8 @@ class home extends Component {
                     <h2 className="header">SEEDS</h2>
                     <h3 className="subheader">CISE - Team 21</h3>
                     <div className="buttons">
-
                         <button className="btn" onClick={this.shandleButtonClicked.bind(this)}>
                         Basic Search
-                        </button>
-                        <button className="btn" onClick={this.ahandleButtonClicked.bind(this)}>
-                        Advanced Search
                         </button>
                     </div>
                 </div>
