@@ -29,10 +29,6 @@ class search extends Component {
           })
     };
 
-    sort(list){
-
-    }
-
     handleInputChanged(event){
         this.setState({
           searchQuery: event.target.value
@@ -64,60 +60,50 @@ class search extends Component {
         books.filter(book => book.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1)
       }
 
-
       console.log("PrintBook: " + books);
       let bookList;
       
-  
       if(!books) {
         bookList = "there is no book record!";
       } else {
         bookList = books.map((book, k) =>
           <BookCard book={book} key={k} />
         );
-        
-      }
-
-        return (
-
-            <div className="home">
-                <div className="navbar">
-                    <ul className="navlist">
-                        <li className="navbtn"><a href="/">Home</a></li>
-                        <li className="navbtn"><a href="/search">Browse Articles</a></li>
-                        <li className="navbtn"><a href="/advancedSearch">Advance Search</a></li>
-                    </ul>
-                </div>
-                <div className="container">
-                    <h2 className="title">Articles</h2>
-                    <h2 className="header">Research List</h2>                         
-                    <input className="textbox" onChange={this.handleInputChanged.bind(this)} value={this.state.searchQuery}/>
-                    <p>{this.state.searchQuery}</p>
-                    <label>Sort by:</label>
-                    <select onChange={this.handleSelect.bind(this)} value={this.state.sort} >
-                      <option value="title">Title</option>
-                      <option value="year">Year</option>
-                      <option value="method">Method</option>
-                    </select>
-                </div>
-                <table>
-                <tr>
-                <th>Title</th>
-                <th>Author</th>   
-                <th>Year</th>
-                <th>SE Practise</th>
-                <th>Claim</th>
-                <th>Strength of Evidence</th>
-                </tr>
-                {bookList}
-                </table>
-                
-
-                <div className="footer">
-                    <p className="footertext">Developed by</p>
-                    <p className="footertext">Victor Feng | Aaron Gilbert | Gerard Gomez</p>
-                </div>
+      }return (
+        <div className="home">
+            <div className="navbar">
+                <ul className="navlist">
+                    <li className="navbtn"><a href="/">Home</a></li>
+                    <li className="navbtn"><a href="/search">Browse Articles</a></li>
+                </ul>
             </div>
+            <div className="container">
+                <h2 className="title">Articles</h2>
+                <h2 className="header">Research List</h2>                         
+                <label>Sort by:</label>
+                <select onChange={this.handleSelect.bind(this)} value={this.state.sort} >
+                  <option value="title">Title</option>
+                  <option value="year">Year</option>
+                  <option value="method">Method</option>
+                </select>
+            </div>
+            <table>
+            <tr>
+            <th>Title</th>
+            <th>Author</th>   
+            <th>Year</th>
+            <th>SE Practise</th>
+            <th>Claim</th>
+            <th>Strength of Evidence</th>
+            </tr>
+            {bookList}
+            </table>
+            
+            <div className="footer">
+                <p className="footertext">Developed by</p>
+                <p className="footertext">Victor Feng | Aaron Gilbert | Gerard Gomez</p>
+            </div>
+        </div>
     );
   }
 }

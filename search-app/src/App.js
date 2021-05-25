@@ -4,7 +4,7 @@ import './App.css';
 
 import Homepage from './components/home';
 import Search from './components/search';
-import AdvancedSearch from './components/advancedSearch';
+
 
 
 class App extends Component {
@@ -14,7 +14,6 @@ class App extends Component {
         <div>
           <Route exact path='/' component={Homepage} />
           <Route path='/Search' component={Search} />
-          <Route path='/AdvancedSearch' component={AdvancedSearch} />
         </div>
       </Router>
     );
