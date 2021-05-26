@@ -14,6 +14,7 @@ class search extends Component {
   }
   componentDidMount() {
     axios
+    //get all books
       .get("https://cise-21-seeds.herokuapp.com/api/books")
       .then((res) => {
         this.setState({
@@ -24,12 +25,13 @@ class search extends Component {
         console.log("Error");
       });
   }
-
+  //handler for Search Bar
   handleInputChanged(event) {
     this.setState({
       searchQuery: event.target.value,
     });
   }
+  //handler for Sort
   handleSelect(event) {
     this.setState({
       sort: event.target.value,
@@ -40,12 +42,15 @@ class search extends Component {
     const books = this.state.books;
 
     // sorting
+    //title
     if (this.state.sort === "title") {
       books.sort((a, b) => (a.title > b.title ? 1 : (a.title === b.title) - 1));
     }
+    //year
     if (this.state.sort === "year") {
       books.sort((a, b) => (a.year > b.year ? 1 : -1));
     }
+    //method
     if (this.state.sort === "method") {
       books.sort((a, b) =>
         a.method > b.method ? 1 : (a.method === b.method) - 1

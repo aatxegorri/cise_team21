@@ -5,6 +5,7 @@ const BookCard = (props) => {
   const book = props.book;
 
   return (
+    //printing book for each row
     <tr>
       <td>{book.title}</td>
       <td>{book.author}</td>

@@ -1,12 +1,13 @@
 // app.js
-const path = require('path'); 
-const express = require('express');
-const connectDB = require('./config/db');
-var cors = require('cors');
-require("dotenv").config({path: "./config.env"});
+
+const express = require("express");
+const connectDB = require("./config/db");
+var cors = require("cors");
+const path = require("path");
+require("dotenv").config({ path: "./config.env" });
 
 // routes
-const books = require('./routes/api/books');
+const books = require("./routes/api/books");
 
 const app = express();
 
@@ -20,18 +21,18 @@ app.use(cors({ origin: true, credentials: true }));
 app.use(express.json({ extended: false }));
 
 // use Routes
-app.use('/api/books', books);
+app.use("/api/books", books);
 
-if(process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "/search-app/build")));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/search-app/build")));
 
-    app.get("*", (req, res) => {
-        res.sendFile(path.join(__dirname,"search-app","build","index.html"));
-    });
-} else{
-    app.get("/", (req,res) =>{
-        res.send("api running");
-    });
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "search-app", "build", "index.html"));
+  });
+} else {
+  app.get("/", (req, res) => {
+    res.send("api running");
+  });
 }
 
 const port = process.env.PORT || 5000;
