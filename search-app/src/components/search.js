@@ -103,14 +103,16 @@ class search extends Component {
                 </div>
             </div>
             <table>
-            <tr>
-            <th>Title</th>
-            <th>Author</th>   
-            <th>Year</th>
-            <th>SE Practise</th>
-            <th>Claim</th>
-            <th>Strength of Evidence</th>
-            </tr>
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Author</th>   
+                  <th>Year</th>
+                  <th>SE Practise</th>
+                  <th>Claim</th>
+                  <th>Strength of Evidence</th>
+                </tr>
+            </thead>
             {bookList}
             </table>
             
