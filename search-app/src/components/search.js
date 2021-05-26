@@ -11,14 +11,13 @@ class search extends Component {
     super(props);
     this.state = {
       books: [],
-      sbooks: [],
       sort: 'title',
       searchQuery: ''
     };
   }
     componentDidMount() {
         axios
-          .get('https://hihiworld.herokuapp.com/api/books')
+          .get('https://cise-21-seeds.herokuapp.com/api/books')
           .then(res =>
              { this.setState({
               books: res.data
@@ -56,9 +55,12 @@ class search extends Component {
       }
 
       // title search here
-      if(this.state.searchQuery!==''){
-        books.filter(book => book.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1)
-      }
+      // if(this.state.searchQuery!==''){
+      //   books.filter((book)=> {
+          
+      //   }).map((book, k) =>
+      //   <BookCard book={book} key={k} />
+      // }
 
       console.log("PrintBook: " + books);
       let bookList;
@@ -66,7 +68,15 @@ class search extends Component {
       if(!books) {
         bookList = "there is no book record!";
       } else {
-        bookList = books.map((book, k) =>
+        bookList = books.filter((book)=>{
+          //show all data
+          if(this.state.searchQuery==""){
+            return books;
+            //return if matches title
+          } else if (book.title.toLowerCase().includes(this.state.searchQuery.toLowerCase())){
+            return books;
+          }
+        }).map((book, k) =>
           <BookCard book={book} key={k} />
         );
       }return (
@@ -79,13 +89,18 @@ class search extends Component {
             </div>
             <div className="container">
                 <h2 className="title">Articles</h2>
-                <h2 className="header">Research List</h2>                         
-                <label>Sort by:</label>
-                <select onChange={this.handleSelect.bind(this)} value={this.state.sort} >
-                  <option value="title">Title</option>
-                  <option value="year">Year</option>
-                  <option value="method">Method</option>
-                </select>
+                <h2 className="header">Research List</h2> 
+                <label>Title:</label>
+                <input className="textbox" onChange={this.handleInputChanged.bind(this)} value={this.state.searchQuery}/>  
+                <p>{this.state.searchQuery}</p>                      
+                <div>
+                  <label>Sort by:</label>
+                  <select onChange={this.handleSelect.bind(this)} value={this.state.sort} >
+                    <option value="title">Title</option>
+                    <option value="year">Year</option>
+                    <option value="method">Method</option>
+                  </select>
+                </div>
             </div>
             <table>
             <tr>
