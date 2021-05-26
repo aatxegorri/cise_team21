@@ -59,9 +59,10 @@ class search extends Component {
       bookList = "there is no book record!";
     } else {
       bookList = books
+        // eslint-disable-next-line array-callback-return
         .filter((book) => {
           //show all data
-          if (this.state.searchQuery == "") {
+          if (this.state.searchQuery === "") {
             return books;
             //return if matches title
           } else if (
