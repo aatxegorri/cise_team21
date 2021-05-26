@@ -11,6 +11,7 @@ class home extends Component {
       <div className="home">
         <div className="navbar">
           <ul className="navlist">
+            {/* Header to navigate from home to search */}
             <li className="navbtn">
               <a href="/">Home</a>
             </li>
