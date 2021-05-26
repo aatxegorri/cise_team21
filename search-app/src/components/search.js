@@ -96,7 +96,6 @@ class search extends Component {
             onChange={this.handleInputChanged.bind(this)}
             value={this.state.searchQuery}
           />
-          <p>{this.state.searchQuery}</p>
           <div>
             <label>Sort by:</label>
             <select
