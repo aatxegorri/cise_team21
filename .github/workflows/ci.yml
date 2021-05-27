@@ -35,5 +35,8 @@ jobs:
   - name: Run lint test in search-app
     run: npm run lint --prefix search-app
     
+  - name: Run tests to check if webpage renders
+    run: npm run test --prefix search-app
+    
   - name: Build
     run: npm run build --prefix search-app
