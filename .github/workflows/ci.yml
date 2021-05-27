@@ -31,9 +31,6 @@ jobs:
     
   - name: Install dependencies in search app
     run: npm install --prefix search-app
-    
-  - name: Run npm test in search app
-    run: npm test --prefix search-app
 
   - name: Run lint test in search-app
     run: npm run lint --prefix search-app
