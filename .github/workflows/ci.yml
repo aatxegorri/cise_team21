@@ -35,8 +35,17 @@ jobs:
   - name: Run npm test in search app
     run: npm test --prefix search-app
 
-  - name: Run lint test
+  - name: Run lint test in search-app
     run: npm run lint --prefix search-app
-
+    
+  - name: Run lint test
+    run: npm run lint 
+    
+  - name: Run node app
+    run: npm start
+    
+  - name: Run nodemon
+    run: npm run app
+    
   - name: Build
-    run: npm run build 
+    run: npm run build --prefix search-app
