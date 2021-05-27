@@ -26,11 +26,11 @@ jobs:
   - name: Install dependencies
     run: npm install
  
-  - name: Run npm test 
-    run: npm test
+  - name: Run npm test in search app
+    run: npm test --prefix search-app
 
   - name: Run lint test
-    run: npm run lint
+    run: npm run lint --prefix search-app
 
   - name: Build
-    run: npm run build
+    run: npm run build 
