@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "engines": {
-    "node": "14.x"
+    "node": "10.16.0"
   },
   "main": "app.js",
   "scripts": {
@@ -36,6 +36,7 @@
     "validation": "0.0.1"
   },
   "devDependencies": {
+    "eslint": "^7.27.0",
     "nodemon": "^2.0.7",
     "web-vitals": "^1.1.2"
   },
